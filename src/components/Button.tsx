@@ -2,18 +2,22 @@ import { useState } from "react";
 
 type Props = {
     onClick:()=>void;
+    mudar:boolean;
 }
 
-export const Button = ({onClick}:Props) => {
+export const Button = ({onClick,mudar}:Props) => {
 
     const [show, setShow] = useState(false)
 
 
     return(
-            <button onClick={onClick}
-            className={` text-white ml-5
-                ${show == false ? 'bg-slate-950':'bg-blue-400'}
+            <button 
+            onClick={onClick}
+            
+            className={`
+            ${mudar == true ? ' text-white ml-5 bg-slate-500 p-2 rounded-md'
+            :'text-black bg-blue-400 ml-5 p-2 rounded-md'}
             `}
-            >Clique Aqui</button>
+            >Clique Aqui </button>
     )
 }
